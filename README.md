@@ -1,19 +1,45 @@
-# WidgetsPractice
+# Flutter Widget Practice
 
-A new Flutter project created with FlutLab - https://flutlab.io
+This project demonstrates the use of Stateless and Stateful widgets in Flutter, along with the use of custom fonts, button styling, and widget alignment.
 
-## Getting Started
+## Running the Project
 
-A few resources to get you started if this is your first Flutter project:
+1. Clone the [repository](https://github.com/Farangiz01/widgetspractice.git).
+2. Open the project in your preferred IDE (e.g., VS Code or Android Studio).
+3. Ensure you have the Flutter SDK set up and an emulator or physical device connected.
+4. Run the `main.dart` file.
 
-- https://flutter.dev/docs/get-started/codelab
-- https://flutter.dev/docs/cookbook
+## Code Explanation
 
-For help getting started with Flutter, view our
-https://flutter.dev/docs, which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## `main.dart`
 
-## Getting Started: FlutLab - Flutter Online IDE
+- The main entry point of the Flutter app.
+- Defines the `MyApp` class that sets up the app structure.
+- The app has an app bar with a teal background color.
+- The body contains a column with various widgets, including `GreetingWidget`, `CounterWidget`, and `WidgetTree`.
 
-- How to use FlutLab? Please, view our https://flutlab.io/docs
-- Join the discussion and conversation on https://flutlab.io/residents
+## `greeting_widget.dart`
+
+- Defines the `GreetingWidget` class, a StatelessWidget.
+- Displays a greeting message with a specified text color and font style.
+
+## `counter_widget.dart`
+
+- Defines the `CounterWidget` class, a StatefulWidget.
+- Displays a counter value and increments it on button press.
+- The button has a lime background color with blue text.
+
+## `widget_tree.dart`
+
+- Defines the `WidgetTree` class, demonstrating a widget tree with multiple levels.
+- Includes a combination of `GreetingWidget` and `CounterWidget`.
+- Each level has its own text color.
+
+## Styling
+
+- The app bar has a teal background color.
+- Greeting messages have a larger font size, bold text, and different text colors.
+- The counter text has a different color and slightly larger font size.
+- The buttons have a lime background color, blue text, and a rounded border for a stylish appearance.
+
+
