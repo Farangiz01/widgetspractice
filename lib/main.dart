@@ -1,41 +1,105 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter Stylish Widgets'),
+          backgroundColor: Colors.teal, // Change app bar color
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GreetingWidget(
+                message: 'Wellcome to Widgets', textColor: Colors.blue),
+            GreetingWidget(
+                message: 'Welcome to Stylish Widgets', textColor: Colors.green),
+            CounterWidget(),
+            WidgetTree(),
+          ],
+        ),
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
+class GreetingWidget extends StatelessWidget {
+  final String message;
+  final Color textColor;
+
+  GreetingWidget({required this.message, required this.textColor});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
+    return Container(
+      margin: EdgeInsets.all(16.0),
+      child: Text(
+        message,
+        style: TextStyle(
+            fontSize: 24.0, fontWeight: FontWeight.bold, color: textColor),
       ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+    );
+  }
+}
+
+class CounterWidget extends StatefulWidget {
+  @override
+  _CounterWidgetState createState() => _CounterWidgetState();
+}
+
+class _CounterWidgetState extends State<CounterWidget> {
+  int counter = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          'Counter Value: $counter',
+          style: TextStyle(fontSize: 20.0, color: Colors.purple),
         ),
+        SizedBox(height: 16.0),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              counter++;
+            });
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Colors.lime, // Button color
+            onPrimary: Colors.blue, // Text color
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+          ),
+          child: Text('Increment Counter', style: TextStyle(fontSize: 16.0)),
+        ),
+      ],
+    );
+  }
+}
+
+class WidgetTree extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          GreetingWidget(
+              message: 'Stylish Widget Tree - Level 1', textColor: Colors.red),
+          GreetingWidget(
+              message: 'Stylish Widget Tree - Level 2',
+              textColor: Colors.amber),
+          CounterWidget(),
+        ],
       ),
     );
   }
